@@ -6,11 +6,9 @@
  */
 namespace BasicApp\Excel;
 
-interface WriterInterface
+interface ReaderInterface
 {
 
-    public function save() : string;
-
-    public function saveToFile(string $filename);
+    public function loadFromFile(string $filename);
 
 }

@@ -1,6 +1,12 @@
 <?php
-
+/**
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link https://basic-app.com
+ */
 namespace BasicApp\Excel;
+
+use PhpOffice\PhpSpreadsheet\Writer\Csv;
 
 class CsvWriter extends BaseWriter
 {
@@ -13,7 +19,7 @@ class CsvWriter extends BaseWriter
 
     public function saveToFile(string $filename)
     {
-        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Csv($this->_spreadsheet);
+        $writer = new Csv($this->_spreadsheet);
         
         $writer->setDelimiter($this->delimiter);
 

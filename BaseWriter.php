@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link https://basic-app.com
+ */
 namespace BasicApp\Excel;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -18,6 +22,11 @@ abstract class BaseWriter implements WriterInterface
             $this->$key = $value;
         }
 
+        $this->setData($data);
+    }
+
+    public function setData(array $data)
+    {
         $this->_spreadsheet = new Spreadsheet;
         
         $sheet = $this->_spreadsheet->getActiveSheet();
@@ -25,7 +34,7 @@ abstract class BaseWriter implements WriterInterface
         $sheet->fromArray($data, null, 'A1');
     }
 
-    public function save()
+    public function save() : string
     {
         ob_start();
         
